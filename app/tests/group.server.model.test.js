@@ -17,7 +17,7 @@ var user, group, newGroup;
 /**
  * Unit tests
  */
-describe.only('Group Model Unit Tests:', function() {
+describe('Group Model Unit Tests:', function() {
 	beforeEach(function(done) {
 		user = new User({
 			firstName: 'Full',

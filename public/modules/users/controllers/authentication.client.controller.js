@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$http', '$location', 'Authentication',
-	function($scope, $http, $location, Authentication) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$window', '$http', '$location', 'Authentication',
+	function($scope, $window, $http, $location, Authentication) {
 		$scope.authentication = Authentication;
 		$scope.credentials = {};
 		$scope.credentials.timezone = moment.tz.guess();
