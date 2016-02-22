@@ -55,21 +55,14 @@ exports.signup = function(req, res) {
 					subject: 'Welcome to EatTheBible',
 					html: emailHTML
 				};
-				smtpTransport.sendMail(mailOptions, function(err3, info) {
-					if (err3) {
+				smtpTransport.sendMail(mailOptions);
+				req.login(user, function(err4) {
+					if (err4) {
 						return res.status(400).send({
-							message: errorHandler.getErrorMessage(err3)
-						});
+								message: errorHandler.getErrorMessage(err4)
+							});
 					} else {
-						req.login(user, function(err4) {
-							if (err4) {
-								return res.status(400).send({
-										message: errorHandler.getErrorMessage(err4)
-									});
-							} else {
-								return res.json(user);
-							}
-						});
+						return res.json(user);
 					}
 				});
 			});
