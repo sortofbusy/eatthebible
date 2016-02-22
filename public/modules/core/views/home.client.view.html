@@ -24,16 +24,20 @@
 		</div>
 		<br>
 		<div class="row" id="readLocation" >	
-			<form class="form-inline col-md-4" data-ng-submit="read(0)" novalidate>
+			<form class="form-inline col-md-12" data-ng-submit="read(0)" novalidate>
                 <div class="input-group">  
                     <input type="text" data-ng-model="readChapter" uib-typeahead="book for book in books | filter:$viewValue | limitTo:1" name="readChapter" class="form-control" placeholder="Enter a chapter to read" autofocus>
-                    <div class="input-group-addon warning" data-ng-click="read(0)"><i class="fa fa-fw fa-search"></i></div>
+                    <div class="input-group-addon warning" data-ng-click="read(0)"><i class="fa fa-fw fa-search"></i></div> 
+                </div>
+                <div class="input-group">  
+                    <select id="version" name="version" class="form-control pull-right" data-ng-model="version" data-ng-options="version as version.name group by version.language for version in bibleVersions" data-ng-change="read()">
+				</select>
                 </div>
 				
 			</form>
 			<br>
 		</div>
-		<div class="col-xs-12" data-ng-show="chapterNumber">
+		<div class="col-xs-12" data-ng-show="chapterText">
 			<br>
 			<h3>{{chapterText.inputstring}}</h3>
 			<div class="lead text-justify" data-ng-style="bibleTextStyle">
@@ -43,12 +47,12 @@
 			</div>
 			<small class="text-muted">{{chapterText.copyright}}</small>
 			<br><br>
-			<div class="col-md text-center">
+			<!--<div class="col-md text-center">
 				<a class="btn btn-primary" data-ng-click="read(-1)"><i class="fa fa-chevron-circle-left"></i> Previous</a> 
 				<a class="btn btn-primary" data-ng-click="read(1)">Next Chapter <i class="fa fa-chevron-circle-right"></i></a>
 				<br>
 				<br>
-			</div>
+			</div>-->
 		</div>
 	</div>
 	<div data-ng-controller="ChaptersController" data-ng-init="init()" data-ng-show="authentication.user">
