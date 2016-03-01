@@ -40,7 +40,7 @@
 		<div class="col-xs-12" data-ng-show="chapterText">
 			<br>
 			<h3>{{chapterText.inputstring}}</h3>
-			<div class="lead text-justify" data-ng-style="bibleTextStyle">
+			<div class="lead leadverses text-justify" data-ng-style="bibleTextStyle">
 				<span data-ng-repeat="verse in chapterText.verses" data-ng-style="bibleTextStyle">
 					<sup>{{verse.ref}}</sup><span data-ng-bind-html="sceTrust(verse.text)"></span>
 				</span>
