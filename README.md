@@ -1,4 +1,4 @@
-#Eat The Bible
+# Eat The Bible
 
 Eat The Bible is a MEANJS-based SPA designed to help people read the Bible in a scheduled way either personally or in groups.
 
